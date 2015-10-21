@@ -1,0 +1,13 @@
+.page-home-index
+  %button.btn.btn_default.create-ppt
+    创建一个PPT
+  .image-form.hidden
+    title
+    %input.title
+    image_path
+    %input.image-path
+    %button.submit 提交
+/ - @deck = Powerpoint::Presentation.new
+/ - @deck.add_intro "title", "subtitle"
+/ - @deck.save('app/assets/images/test.pptx')
+

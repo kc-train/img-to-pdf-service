@@ -43,6 +43,7 @@ end
 
 ###
 ############
+gem 'powerpoint'
 gem 'mongoid', '~> 4.0.2'
 gem 'simple_form'
 gem 'haml'

@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'home#index'
+
+  get '/home/create_ppt', to: 'home#create_ppt'
+  get '/home/add_image', to: 'home#add_image'
 end
