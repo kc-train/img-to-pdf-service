@@ -1,13 +1,35 @@
+- @deck = Powerpoint::Presentation.new
 .page-home-index
-  %button.btn.btn_default.create-ppt
-    创建一个PPT
-  .image-form.hidden
+  .intro-form
+    title
+    %input.title
+    subtitle
+    %input.subtitle
+    %button.submit 提交
+    - @deck.add_intro "title1", "image_path1"
+  .text-form
+    title
+    %input.title
+    content
+    %input.content
+    %button.submit 提交
+    - @deck.add_textual_slide "title", ['Its cool!', 'Its light.']
+  .image-form
     title
     %input.title
     image_path
     %input.image-path
     %button.submit 提交
-/ - @deck = Powerpoint::Presentation.new
-/ - @deck.add_intro "title", "subtitle"
-/ - @deck.save('app/assets/images/test.pptx')
+    - @images.each do |image|
+      = render :partial => "/images/image_li", :locals => {:image => image}
+      - @deck.add_pictorial_slide image.title, image.url
+      / = image.title
+      / = image.url
+      / - @deck.add_pictorial_slide image.title, image.url
+  .save_where
+    url
+    %input.save-path
+    %button.submit 提交
+    - @deck.save('sample.pptx')
+
 
