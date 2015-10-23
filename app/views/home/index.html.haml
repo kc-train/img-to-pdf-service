@@ -1,35 +1,19 @@
+- require 'net/http'
+
 - @deck = Powerpoint::Presentation.new
 .page-home-index
-  .intro-form
-    title
-    %input.title
-    subtitle
-    %input.subtitle
-    %button.submit 提交
-    - @deck.add_intro "title1", "image_path1"
-  .text-form
-    title
-    %input.title
-    content
-    %input.content
-    %button.submit 提交
-    - @deck.add_textual_slide "title", ['Its cool!', 'Its light.']
-  .image-form
-    title
-    %input.title
-    image_path
-    %input.image-path
-    %button.submit 提交
-    - @images.each do |image|
-      = render :partial => "/images/image_li", :locals => {:image => image}
-      - @deck.add_pictorial_slide image.title, image.url
-      / = image.title
-      / = image.url
-      / - @deck.add_pictorial_slide image.title, image.url
+  - @deck.add_intro "title1", "image_path1"
+  - @deck.add_textual_slide "title", ['Its cool!', 'Its light.']
+  = link_to '添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
+  - @images.each do |image|
+    = render :partial => "/images/image_li", :locals => {:image => image}
+    - @deck.add_pictorial_slide image.title, Rails.root + "app/assets/images/" + image.title
+  将所有要添加的图片全部添加之后，再点击“输入ppt名称”
   .save_where
-    url
-    %input.save-path
-    %button.submit 提交
-    - @deck.save('sample.pptx')
+    = link_to '输入ppt名称', "/file_names/new", :method => :get, :class => "btn btn-default get-file-name"
+    - @file_names.each do |file|
+      - @deck.save(file.name + '.pptx')
+      - Image.destroy_all
+      - FileName.destroy_all
 
 
