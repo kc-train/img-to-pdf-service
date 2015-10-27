@@ -1,0 +1,6 @@
+.page-new-word-contents
+  = simple_form_for @word_content do |f|
+    = f.input 'title', input_html: { class: 'form-control' }
+    = f.input 'content', input_html: { class: 'form-control' }, as: :text
+    %button.btn.btn-defualt
+      = '提交'

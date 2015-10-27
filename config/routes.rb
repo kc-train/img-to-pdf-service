@@ -59,5 +59,7 @@ Rails.application.routes.draw do
   # get '/home/add_image', to: 'home#add_image'
 
   resources :images
+  resources :ppt_images
   resources :file_names
+  resources :word_contents
 end

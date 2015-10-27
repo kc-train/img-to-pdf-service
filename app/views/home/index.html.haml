@@ -2,18 +2,34 @@
 
 - @deck = Powerpoint::Presentation.new
 .page-home-index
-  - @deck.add_intro "title1", "image_path1"
-  - @deck.add_textual_slide "title", ['Its cool!', 'Its light.']
-  = link_to '添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
-  - @images.each do |image|
-    = render :partial => "/images/image_li", :locals => {:image => image}
-    - @deck.add_pictorial_slide image.title, Rails.root + "app/assets/images/" + image.title
-  将所有要添加的图片全部添加之后，再点击“输入ppt名称”
+  .add-word-content
+    = link_to '添加文字描述', "/word_contents/new", :method => :get, :class => "btn btn-default add-word-content"
+  - @word_contents.each do |word_content|
+    = word_content.title
+    = word_content.content
+    - @deck.add_intro word_content.title, word_content.content
+  .add-img
+    = link_to '添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
+  .choice-img
+    = link_to '选择图片', "/ppt_images/new", :method => :get, :class => "btn btn-default choice-image"
+    .img-choiced
+    已选择图片
+    - @ppt_images.each do |ppt_image|
+      - ppt_image.image.each do |image|
+        .img-title
+          = image.title
+          = image.name
+        .img
+          = image_tag(image.name)
+        - @deck.add_pictorial_slide image.title, Rails.root + "app/assets/images/" + image.name
+  .tip
+    选择图片之后，再点击“输入ppt名称”，创建pptx文件
   .save_where
     = link_to '输入ppt名称', "/file_names/new", :method => :get, :class => "btn btn-default get-file-name"
     - @file_names.each do |file|
       - @deck.save(file.name + '.pptx')
-      - Image.destroy_all
+      - WordContent.destroy_all
+      - PptImage.destroy_all
       - FileName.destroy_all
 
 

@@ -6,7 +6,7 @@ class FileNamesController < ApplicationController
   def create
     file = FileName.create(file_name_params)
     if file.save
-      redirect_to "/home/index"
+      redirect_to "/"
     end
   end
 
