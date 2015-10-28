@@ -60,6 +60,10 @@ Rails.application.routes.draw do
 
   resources :images
   resources :ppt_images
-  resources :file_names
+  resources :file_names do
+    member do
+      get 'download'
+    end
+  end
   resources :word_contents
 end

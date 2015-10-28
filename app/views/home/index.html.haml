@@ -1,13 +1,11 @@
-- require 'net/http'
-
-- @deck = Powerpoint::Presentation.new
 .page-home-index
   .add-word-content
     = link_to '添加文字描述', "/word_contents/new", :method => :get, :class => "btn btn-default add-word-content"
   - @word_contents.each do |word_content|
-    = word_content.title
-    = word_content.content
-    - @deck.add_intro word_content.title, word_content.content
+    .title
+      = word_content.title
+    .content
+      = word_content.content
   .add-img
     = link_to '添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
   .choice-img
@@ -21,15 +19,22 @@
           = image.name
         .img
           = image_tag(image.name)
-        - @deck.add_pictorial_slide image.title, Rails.root + "app/assets/images/" + image.name
+    / - @img = MiniMagick::Image.new("http://tse1.mm.bing.net/th?&id=OIP.Mdf244f261ef3c59dd59e1a73dacd2d3eo0&w=300&h=300&c=0&pid=1.9&rs=0&p=0")
+    - @img = MiniMagick::Image.open("http://tse1.mm.bing.net/th?&id=OIP.Mdf244f261ef3c59dd59e1a73dacd2d3eo0&w=300&h=300&c=0&pid=1.9&rs=0&p=0")
+    - @img.resize "1600x900"
+    - @img.contrast
+    - @img.write("from_internets.jpg")
   .tip
-    选择图片之后，再点击“输入ppt名称”，创建pptx文件
+    选择图片之后，再点击“输入ppt名称”，创建ppt文件
   .save_where
     = link_to '输入ppt名称', "/file_names/new", :method => :get, :class => "btn btn-default get-file-name"
     - @file_names.each do |file|
-      - @deck.save(file.name + '.pptx')
-      - WordContent.destroy_all
-      - PptImage.destroy_all
-      - FileName.destroy_all
+      .download-file
+        已生成ppt文件
+        = file.name
+        = link_to '下载', "/file_names/#{file.id}/download", :method => :get, :class => "btn btn-default download-file"
+        = link_to '删除', "/file_names/#{file.id}", :method => :delete, :class => "btn btn-default delete-file"
+
+
 
 

@@ -43,6 +43,7 @@ end
 
 ###
 ############
+gem 'mini_magick'
 gem 'powerpoint'
 gem 'mongoid', '~> 4.0.2'
 gem 'simple_form'
