@@ -1,5 +1,5 @@
 .page-new-ppt-images
-  = simple_form_for @ppt_image do |f|
-    = f.association :image, as: :check_boxes,value_method: :id
+  = simple_form_for [@ppt,@ppt_image] do |f|
+    = f.association :images, as: :check_boxes
     %button.btn.btn-defualt
       = '提交'

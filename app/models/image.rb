@@ -3,8 +3,7 @@ class Image
   include Mongoid::Timestamps
  
   field :title, :type => String
-  field :name, :type => String
   field :url, :type => String
 
-  belongs_to :ppt_image, class_name: 'PptImage'
+  has_and_belongs_to_many :ppt_images, class_name: 'PptImage'
 end

@@ -13,11 +13,11 @@ class ImagesController < ApplicationController
   def create
     image = Image.create(image_params)
     if image.save
-      image_name = params[:image][:name]
+      image_title = params[:image][:title]
       uri = params[:image][:url]
       img = MiniMagick::Image.open(uri)
-      img.resize "400x300"
-      img.write(Rails.root + 'app/assets/images/' + image_name)
+      img.resize "360x270"
+      img.write(Rails.root + 'app/assets/images/' + image_title)
       # open(uri) do |http|
       #   resp = http.read
       #   File.open(Rails.root + 'app/assets/images/' + image_name,'wb'){ |f| f.write(resp)}
@@ -33,6 +33,6 @@ class ImagesController < ApplicationController
   private
 
       def image_params
-        params.require(:image).permit(:title, :name, :url)
+        params.require(:image).permit(:title, :url)
       end
 end
