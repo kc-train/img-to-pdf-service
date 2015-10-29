@@ -1,5 +1,4 @@
 .page-ppt-show
-  - @deck = Powerpoint::Presentation.new
   .img-choiced
   已选择图片
   - @ppt.ppt_images.each do |ppt_image|
@@ -8,8 +7,5 @@
         = image.title
       .img
         = image_tag(image.title)
-      - coords = {x: 0, y: 0, cx: 720 * 12700, cy: 540 * 12700}
-      - @deck.add_pictorial_slide image.title, Rails.root + "app/assets/images/" + image.title, coords
-  - @deck.save(Rails.root + "app/assets/pptxs/#{@ppt.title}.pptx")
   = link_to '添加图片', "/ppts/#{@ppt.id}/ppt_images/new", :method => :get, :class => "btn btn-default choice-image"
   = link_to '去下载', "/ppts", :method => :get, :class => "btn btn-default"
