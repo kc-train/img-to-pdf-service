@@ -14,5 +14,5 @@
         = link_to '查看已选择图片',"/ppts/#{ppt.id}", :method => :get, :class => "btn btn-default show-ppt-images"
         = link_to '下载', "/ppts/#{ppt.id}/download", :method => :get, :class => "btn btn-default download-ppt"
         = link_to '删除', "/ppts/#{ppt.id}", :method => :delete, :class => "btn btn-default delete-ppt"
-  .save_where
-    = link_to '创建一个空白的ppt', "/ppts/new", :method => :get, :class => "btn btn-default get-file-name"
+  .create-ppt
+    = link_to '创建一个空白的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"

@@ -1,8 +1,7 @@
 .page-imgae-index
   内置图片列表
+  .create-ppt
+    = link_to '创建一个空白的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
+  = link_to '继续添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
   - @images.each do |image|
     = render :partial => "/images/image_li", :locals => {:image => image}
-  = link_to '继续添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
-.choice-img
-  将所有要添加的图片全部添加之后，再点击“选择图片”选取要加入ppt的图片
-  = link_to '选择图片', "/ppt_images/new", :method => :get, :class => "btn btn-default choice-image"
