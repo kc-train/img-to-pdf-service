@@ -56,7 +56,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/home/index', to: 'home#index'
-  # get '/home/add_image', to: 'home#add_image'
 
   resources :images
   resources :ppts do

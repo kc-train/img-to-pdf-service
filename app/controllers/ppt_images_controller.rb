@@ -20,7 +20,7 @@ class PptImagesController < ApplicationController
         end
       end
 
-      @deck.save(Rails.root + "app/assets/pptxs/#{@ppt.title}.pptx")
+      @deck.save("public/" + @ppt.pptx.url)
       
       redirect_to "/ppts/#{@ppt.id}"
     end

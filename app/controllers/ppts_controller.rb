@@ -19,9 +19,10 @@ class PptsController < ApplicationController
     @ppt = Ppt.find(params[:id])
   end
 
+
   def download
     ppt = Ppt.find(params[:id])
-    send_file("#{Rails.root}/app/assets/pptxs/#{ppt.title}.pptx", :filename => ppt.title + ".pptx")
+    send_file("public/" + ppt.pptx.url, :filename => ppt.title + ".pptx")
   end
 
   def destroy
@@ -33,6 +34,6 @@ class PptsController < ApplicationController
   private
 
     def ppt_params
-      params.require(:ppt).permit(:title)
+      params.require(:ppt).permit(:title, :pptx)
     end
 end

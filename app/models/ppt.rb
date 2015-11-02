@@ -1,6 +1,8 @@
 class Ppt
   include Mongoid::Document
   include Mongoid::Timestamps
+
+  mount_uploader :pptx, PptxUploader
  
   field :title, :type => String
 
