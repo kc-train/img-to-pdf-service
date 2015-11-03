@@ -12,22 +12,10 @@ class PptsController < ApplicationController
   end
 
   def create
-    @deck = Powerpoint::Presentation.new
     ppt = Ppt.create(ppt_params)
 
     if ppt.save
-      ppt.images.each do |image|
-        file = Tempfile.new('ppt_image')
-        open(image.url) do |http|
-          resp = http.read
-          File.open(file.path,'wb'){ |f| f.write(resp)}
-        end
-        file.close
-        coords = {x: 0, y: 0, cx: 720 * 12700, cy: 540 * 12700}
-        @deck.add_pictorial_slide image.title, file.path, coords
-      end
-
-      @deck.save("public/"+ ppt.pptx.url + ".pptx")
+      ImgToPptTranscodeWorker.perform_async(ppt.id.to_s)
 
       redirect_to "/ppts"
     end
@@ -38,23 +26,11 @@ class PptsController < ApplicationController
   end
 
   def update
-    @deck = Powerpoint::Presentation.new
     ppt = Ppt.find(params[:id])
     ppt.update(ppt_params)
 
     if ppt.save
-      ppt.images.each do |image|
-        file = Tempfile.new('ppt_image')
-        open(image.url) do |http|
-          resp = http.read
-          File.open(file.path,'wb'){ |f| f.write(resp)}
-        end
-        file.close
-        coords = {x: 0, y: 0, cx: 720 * 12700, cy: 540 * 12700}
-        @deck.add_pictorial_slide image.title, file.path, coords
-      end
-
-      @deck.save("public/"+ ppt.pptx.url + ".pptx")
+      ImgToPptTranscodeWorker.perform_async(ppt.id.to_s)
 
       redirect_to "/ppts"
     end

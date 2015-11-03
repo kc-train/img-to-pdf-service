@@ -43,6 +43,9 @@ end
 
 ###
 ############
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'mini_magick'

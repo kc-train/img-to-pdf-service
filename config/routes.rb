@@ -55,8 +55,6 @@ Rails.application.routes.draw do
   #   end
   root 'home#index'
 
-  get '/home/index', to: 'home#index'
-
   resources :images
   resources :ppts do
     member do

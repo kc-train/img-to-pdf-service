@@ -3,9 +3,11 @@
     .download-ppt
       可下载ppt文件
       = ppt.title
-      = link_to '添加图片', "/ppts/#{ppt.id}/ppt_images/new", :method => :get, :class => "btn btn-default choice-image"
+      = link_to '添加图片', "/ppts/#{ppt.id}/edit", :method => :get, :class => "btn btn-default choice-image"
       = link_to '查看已选择图片',"/ppts/#{ppt.id}", :method => :get, :class => "btn btn-default show-ppt-images"
       = link_to '下载', "/ppts/#{ppt.id}/download", :method => :get, :class => "btn btn-default download-ppt"
       = link_to '删除', "/ppts/#{ppt.id}", :method => :delete, :class => "btn btn-default delete-ppt"
   .create-ppt
     = link_to '创建一个新的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
+  .back-to-home-index
+    = link_to '回到首页', "/home/index", :method => :get, :class => "btn btn-default"
