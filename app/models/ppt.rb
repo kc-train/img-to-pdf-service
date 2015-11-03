@@ -6,5 +6,5 @@ class Ppt
  
   field :title, :type => String
 
-  has_many :ppt_images , class_name: 'PptImage'
+  has_and_belongs_to_many :images, class_name: 'Image'
 end

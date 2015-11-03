@@ -7,12 +7,12 @@ module PptxUploaderMethods
   end
 
   def url
-    _file_name = model[mounted_as]
-    return default_url if _file_name.blank?
+    # _file_name = model[mounted_as]
+    # return default_url if _file_name.blank?
 
-    prefix = version_name.blank? ? '' : "#{version_name}_"
-
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}/#{prefix}#{_file_name}" 
+    # prefix = version_name.blank? ? '' : "#{version_name}_"
+    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}/#{prefix}#{_file_name}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}" 
   end
 
   def extension_white_list

@@ -59,7 +59,6 @@ Rails.application.routes.draw do
 
   resources :images
   resources :ppts do
-    resources :ppt_images
     member do
       get 'download'
     end
