@@ -13,10 +13,8 @@ class PptsController < ApplicationController
 
   def create
     ppt = Ppt.create(ppt_params)
-
     if ppt.save
       ImgToPptTranscodeWorker.perform_async(ppt.id.to_s)
-
       redirect_to "/ppts"
     end
   end
@@ -28,10 +26,10 @@ class PptsController < ApplicationController
   def update
     ppt = Ppt.find(params[:id])
     ppt.update(ppt_params)
+    ppt.status = :edit
 
     if ppt.save
       ImgToPptTranscodeWorker.perform_async(ppt.id.to_s)
-
       redirect_to "/ppts"
     end
   end

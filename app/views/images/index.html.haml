@@ -3,5 +3,7 @@
   .create-ppt
     = link_to '创建一个新的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
   = link_to '继续添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
+  .back-to-home-index
+    = link_to '回到首页', "/", :method => :get, :class => "btn btn-default"
   - @images.each do |image|
     = render :partial => "/images/image_li", :locals => {:image => image}
