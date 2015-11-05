@@ -6,6 +6,8 @@ class Ppt
   mount_uploader :pptx, PptxUploader
 
   field :title, :type => String
+
+  validates :title, :presence => true
   # edit  converting  convert_success convert_fail
   enumerize :status, in: [:edit, :converting, :convert_success, :convert_fail], default: :edit
 

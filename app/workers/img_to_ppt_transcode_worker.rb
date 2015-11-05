@@ -6,7 +6,7 @@ class ImgToPptTranscodeWorker
   def perform(ppt_id)
     @deck = Powerpoint::Presentation.new
     @ppt = Ppt.find(ppt_id)
-    
+
     @ppt.status = "converting"
     @ppt.save
 
@@ -17,8 +17,12 @@ class ImgToPptTranscodeWorker
         File.open(file.path,'wb'){ |f| f.write(resp)}
       end
       file.close
-      coords = {x: 0, y: 0, cx: 720 * 12700, cy: 540 * 12700}
-      @deck.add_pictorial_slide image.title, file.path, coords
+      img = MiniMagick::Image.new(file.path)
+      img.contrast
+      img.resize "960x420"
+      # coords = {x: 0, y: 0, cx: 720 * 12700, cy: 540 * 12700}
+      @deck.add_pictorial_slide image.title, file.path
+      # @deck.add_pictorial_slide image.title, file.path, coords
     end
 
     @ppt.status = "convert_fail"
