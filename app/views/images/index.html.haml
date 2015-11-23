@@ -1,8 +1,8 @@
-.page-imgae-index
+.page-imgae-index.container
   .table-name
     内置图片列表
-  .create-ppt
-    = link_to '创建一个新的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
+  / .create-ppt
+  /   = link_to '创建一个新的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
   .add-image
     = link_to '继续添加图片', "/images/new", :method => :get, :class => "btn btn-default add-image"
   %ul.images
