@@ -1,0 +1,20 @@
+!!!
+%html{:lang => :zh}
+  %head
+    %title ImgToPdfService
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      .col-md-12
+        %nav.navbar.navbar-inverse
+          %ul.nav.navbar-nav.navbar-left
+            %li
+              %a{:href => '/ppts', :data => {:method => :get}} ppt转换
+            %li
+              %a{:href => '/images', :data => {:method => :get}} 图片管理
+            %li
+              %a{:href => '/ppts', :data => {:method => :get}} ppt管理
+    .container
+      = yield

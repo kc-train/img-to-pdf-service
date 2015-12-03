@@ -1,0 +1,16 @@
+.page-ppt-show
+  .table-name
+    已选择图片
+  .choice-image
+    = link_to '重新选择图片', "/ppts/#{@ppt.id}/edit", :method => :get, :class => "btn btn-default"
+  .all-image-view
+    = link_to '查看所有图片', "/images", :method => :get, :class => "btn btn-default"
+  .ppt-download
+    = link_to 'ppt下载', "/ppts", :method => :get, :class => "btn btn-default"
+  %ul.img
+    - @ppt.images.each do |image|
+      %li.img
+        .img-title
+          = image.title
+        .img-view
+          = image_tag(image.url)

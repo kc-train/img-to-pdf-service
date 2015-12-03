@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use SCSS for stylesheets
@@ -43,6 +42,14 @@ end
 
 ###
 ############
+gem 'enumerize'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem 'mini_magick'
+gem 'powerpoint'
 gem 'mongoid', '~> 4.0.2'
 gem 'simple_form'
 gem 'haml'

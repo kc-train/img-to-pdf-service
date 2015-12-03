@@ -5,4 +5,225 @@ body {
   background-color: #fafafa;
   font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif", "微软雅黑";
   color: #444;
+
+  ul.nav.navbar-nav.navbar-left{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+
+    li{
+      border-bottom: 0px solid #eee;
+      margin: 0;
+      padding: 10px;
+
+      a{
+        margin-right: 200px;
+        text-align: center;
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.page-home-index{
+  .image-table{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+
+  .ppt-table{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+
+  .create-ppt{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+}
+
+.page-imgae-index{
+  .table-name{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .create-ppt{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+    float: none;
+  }
+
+  .add-image{
+    // text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+
+  ul.images{
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+
+    li.image{
+      border-bottom: 1px solid #eee;
+      @include clearfix;
+      margin: 0;
+      padding: 10px;
+
+      .image-title{
+        margin-right: 10px;
+        text-align: center;
+        float: left;
+        width: 80px;
+        font: 13px;
+      }
+
+      .image-view{
+        margin-right: 10px;
+        text-align: center;
+        float: left;
+        width: 900px;
+      }
+
+      .image-delete{
+        margin-right: 10px;
+        text-align: center;
+        float: left;
+        width: 40px;
+        font: 13px;
+      }
+    }
+  }
+}
+
+.page-ppt-index{
+   float: center;
+
+  .table-name{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  ul.ppts{
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+
+    li.ppt{
+      border-bottom: 1px solid #eee;
+      @include clearfix;
+      margin: 0;
+      padding: 10px;
+
+      .ppt-title{
+        margin-right: 10px;
+        float: left;
+        width: 60px;
+        font: 13px;
+      }
+
+      .add-image{
+        margin-right: 10px;
+        float: left;
+        width: 100px;
+        font: 13px;
+      }
+
+      .show-ppt-image{
+        margin-right: 10px;
+        float: left;
+        width: 150px;
+        font: 13px;
+      }
+
+      .download-ppt{
+        margin-right: 40px;
+        float: left;
+        width: 200px;
+        font: 13px;
+      }
+
+      .delete-ppt{
+        margin-right: 10px;
+        float: left;
+        width: 100px;
+        font: 13px;
+      }
+    }
+  }
+
+  .create-ppt{
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+}
+
+.page-ppt-show{
+  .table-name{
+     text-align: center;
+     font-size: 20px;
+     font-weight: 700;
+  }
+  .choice-image{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+    float: none;
+  }
+
+  .ppt-download{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 20;
+  }
+
+  .all-image-view{
+    text-align: center;
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+  }
+
+  ul.img{
+    list-style: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+
+    li.img{
+      border-bottom: 1px solid #eee;
+      @include clearfix;
+      margin: 0;
+      padding: 10px;
+
+      .img-title{
+        margin-right: 10px;
+        text-align: center;
+        float: left;
+        width: 40px;
+        font: 13px;
+      }
+
+      .img-view{
+        margin-right: 10px;
+        text-align: center;
+        float: left;
+        width: 1200px;
+      }
+    }
+  }
 }

@@ -1,0 +1,7 @@
+.page-edit-files
+  = simple_form_for @ppt do |f|
+    = f.input 'title', input_html: { class: 'form-control' }
+    = f.input 'pptx', as: :hidden, input_html: { class: 'form-control'}
+    = f.association :images, as: :check_boxes
+    %button.btn.btn-defualt
+      = '提交'

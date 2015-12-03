@@ -1,0 +1,7 @@
+.page-home-index.container
+  .image-table
+    = link_to '图片列表', "/images", :method => :get, :class => "btn btn-default add-image"
+  .ppt-table
+    = link_to 'ppt列表', "/ppts", :method => :get, :class => "btn btn-default choice-image"
+  .create-ppt
+    = link_to '创建一个新的ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"

@@ -1,0 +1,29 @@
+.page-ppt-index.container
+  .col-md-2
+  .col-md-8
+    .table-name
+      ppt列表
+    .create-ppt
+      = link_to '生成ppt', "/ppts/new", :method => :get, :class => "btn btn-default create-ppt"
+    %ul.ppts
+      - @ppts.each do |ppt|
+        %li.ppt
+          .ppt-title
+            = ppt.title
+          .add-image
+            = link_to '修改ppt', "/ppts/#{ppt.id}/edit", :method => :get, :class => "btn btn-default"
+          .show-ppt-image
+            = link_to '查看已选择图片',"/ppts/#{ppt.id}", :method => :get, :class => "btn btn-default show-ppt-images"
+          .download-ppt
+            - if ppt.status == "convert_fail"
+              = "转码失败"
+              = link_to '重新转码', "/ppts/#{ppt.id}/edit", :method => :get, :class => "btn btn-default"
+            - if ppt.status == "converting" || ppt.status == "edit"
+              = "正在将图片转码成ppt。。。。"
+              = link_to '刷新', "/ppts", :method => :get, :class => "btn btn-default"
+            - if ppt.status == "convert_success"
+              = link_to '下载', "/ppts/#{ppt.id}/download", :method => :get, :class => "btn btn-default download-ppt"
+          .delete-ppt
+            = link_to '删除', "/ppts/#{ppt.id}", :method => :delete, :class => "btn btn-default delete-ppt"
+  .col-md-2
+

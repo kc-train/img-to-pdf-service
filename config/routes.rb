@@ -53,4 +53,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'home#index'
+
+  resources :images
+  resources :ppts do
+    member do
+      get 'download'
+    end
+  end
+  resources :word_contents
 end

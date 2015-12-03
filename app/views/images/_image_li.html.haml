@@ -1,0 +1,7 @@
+%li.image
+  .image-title
+    = image.title
+  .image-view
+    = image_tag(image.url)
+  .image-delete
+    = link_to "删除", "/images/#{image.id}", :method => :delete, :class => "btn btn-default delete-img"
